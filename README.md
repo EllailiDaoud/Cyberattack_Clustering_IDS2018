@@ -1,6 +1,6 @@
 # Advanced Cyberattack Detection by Integrating Clustering into a Single Supervised Model
 
-> A reproducible pipeline that enriches a supervised IDS classifier with **unsupervised clustering signals** (K‑Means, GMM, HDBSCAN) on the **CSE‑CIC‑IDS2018** dataset, then explains decisions with **SHAP**. fileciteturn1file0
+> A reproducible pipeline that enriches a supervised IDS classifier with **unsupervised clustering signals** (K‑Means, GMM, HDBSCAN) on the **CSE‑CIC‑IDS2018** dataset, then explains decisions with **SHAP**.
 
 ---
 
@@ -22,9 +22,9 @@
 ---
 
 ## 🗂️ Project Artifact
-- Main notebook/script: `agoujil_mouhcine_ellaili_daoud_abiba_achraf_aouragh_chaimaa_zitouni_salah_eddine_notebook.py` (exported from Colab). fileciteturn1file0
+- Main notebook/script: `agoujil_mouhcine_ellaili_daoud_abiba_achraf_aouragh_chaimaa_zitouni_salah_eddine_notebook.py` (exported from Colab).
 
-> The code expects a CSV named like `02-14-2018.csv` (CSE‑CIC‑IDS2018 slice). Update the path variables inside the script if your file lives elsewhere. fileciteturn1file0
+> The code expects a CSV named like `02-14-2018.csv` (CSE‑CIC‑IDS2018 slice). Update the path variables inside the script if your file lives elsewhere.
 
 ---
 
@@ -53,7 +53,7 @@ pip install pandas xgboost hdbscan shap matplotlib seaborn jupyter
 
 ## 📥 Data
 - **Dataset**: CSE‑CIC‑IDS2018 (Kaggle). Download the relevant CSV(s) locally.
-- **Path used in code**: `02-14-2018.csv`. Change the path near file reads if needed. fileciteturn1file0
+- **Path used in code**: `02-14-2018.csv`. Change the path near file reads if needed.
 
 ---
 
@@ -68,7 +68,7 @@ pip install pandas xgboost hdbscan shap matplotlib seaborn jupyter
 ```bash
 python agoujil_mouhcine_ellaili_daoud_abiba_achraf_aouragh_chaimaa_zitouni_salah_eddine_notebook.py
 ```
-If you hit memory/time limits, reduce the **sampling fraction** (code uses ~**6%** of rows for heavy steps) or disable some plots. fileciteturn1file0
+If you hit memory/time limits, reduce the **sampling fraction** (code uses ~**6%** of rows for heavy steps) or disable some plots.
 
 ---
 
@@ -86,22 +86,22 @@ If you hit memory/time limits, reduce the **sampling fraction** (code uses ~**6%
 8. **Metrics**: Accuracy/Precision/Recall/F1; confusion matrix.  
 9. **Explainability**: **SHAP** summary + top features plots.  
 10. **Compare**: baseline vs. with clusters (numeric / one‑hot).  
-(See inline comments and printouts in the code.) fileciteturn1file0
+(See inline comments and printouts in the code.)
 
 ---
 
 ## 📊 Key Results (summarized)
 - **Baseline (no clusters)**: ≈ **0.999–1.000** across Accuracy/Precision/Recall/F1 on sampled data.  
 - **+ Clusters (numeric / one‑hot)**: **no significant improvement**; performances remain ≈ baseline.  
-- **SHAP**: **Dst Port**, header/flow statistics rank highest; **cluster features** show limited marginal importance. fileciteturn1file0
+- **SHAP**: **Dst Port**, header/flow statistics rank highest; **cluster features** show limited marginal importance.
 
 > Interpretation: With this dataset slice and preprocessing, the supervised ensemble is already very strong; clustering‑derived signals don’t add measurable lift.
 
 ---
 
 ## 🧪 Repro Tips
-- Tune `n_clusters` (K‑Means/GMM), `min_cluster_size` (HDBSCAN), and **sampling** to balance quality vs. runtime. fileciteturn1file0
-- If memory is tight, drop high‑cardinality / quasi‑constant columns and keep the most informative features. fileciteturn1file0
+- Tune `n_clusters` (K‑Means/GMM), `min_cluster_size` (HDBSCAN), and **sampling** to balance quality vs. runtime.
+- If memory is tight, drop high‑cardinality / quasi‑constant columns and keep the most informative features.
 - For a fuller benchmark, run multiple days of CSE‑CIC‑IDS2018 and macro‑average metrics.
 
 ---
